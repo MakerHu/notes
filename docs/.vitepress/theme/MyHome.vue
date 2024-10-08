@@ -1,7 +1,7 @@
 <script setup>
     import { ref, reactive, onMounted } from 'vue';
     import { useData, useRouter, withBase } from 'vitepress'
-    import Toggle from './component/toggle.vue';
+    import Toggle from './component/Toggle.vue';
 
     const { isDark, frontmatter } = useData()
     const router = useRouter()
