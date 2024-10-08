@@ -1,0 +1,13 @@
+:root {
+    --cus-shadow-frame: inset 2px 5px 10px rgb(205, 205, 205);
+    --cus-shadow-ball: inset -20px -20px 30px rgba(0, 0, 0, 0.2),
+        10px 10px 30px rgba(0, 0, 0, 0.3);
+    --cus-gradient-ball: radial-gradient(circle at 30% 30%, #f1f1f1, #e3e3e3);
+}
+
+.dark {
+    --cus-shadow-frame: inset 2px 5px 10px rgb(5, 5, 5);
+    --cus-shadow-ball: inset -20px -20px 30px rgba(0, 0, 0, 0.2),
+        10px 10px 30px rgba(0, 0, 0, 0.8);
+    --cus-gradient-ball: radial-gradient(circle at 30% 30%, #efefef, #3f3f3f);
+}

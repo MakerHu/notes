@@ -1,40 +1,7 @@
-<template>
-    <button class="toggle-button" @click="toggleTheme">*</button>
-    <!-- <div class="logo-container">
-        <img class="logo" :src="withBase(frontmatter.hero.image.src)" :alt="frontmatter.hero.image.alt" />
-    </div> -->
-    <div class="title-container">
-        <h1 class="title">{{ frontmatter.hero.name }}</h1>
-    </div>
-    
-    <div class="frame-container">
-        <div class="frame"></div>
-        <div
-            v-for="(ball, index) in balls"
-            :key="index"
-            class="ball"
-            @click="goToPage(ball.link)"
-            :style="{
-            left: ball.x - ball.r + 'px',
-            top: ball.y - ball.r + 'px',
-            backgroundColor: ball.color
-            }"
-        >
-            <div class="image-container">
-                <img class="image" :src="withBase(ball.icon)" :alt="frontmatter.hero.image.alt" />
-            </div>
-
-            <div class="ball-tag">
-                {{ ball.name }}
-            </div>
-            
-        </div>
-    </div>
-  </template>
-  
-  <script setup>
+<script setup>
     import { ref, reactive, onMounted } from 'vue';
     import { useData, useRouter, withBase } from 'vitepress'
+    import Toggle from './component/toggle.vue';
 
     const { isDark, frontmatter } = useData()
     const router = useRouter()
@@ -76,7 +43,6 @@
     const frameHeight = ref((window.innerHeight - paddingTop) * 0.95); // 长方形的高
     const framePosition = reactive({})
 
-    // const balls = ref(Array.from({ length: 10 }, () => createBall()));
     const balls = reactive([]);
 
     // 监听屏幕宽度变化
@@ -182,29 +148,43 @@
 
         setInterval(updateBalls, 16);
     });
-  </script>
+</script>
+
+<template>
+    <div class="title-container">
+        <h1 class="title">{{ frontmatter.hero.name }}</h1>
+        <Toggle class="toggle" v-model="isDark"></Toggle>
+    </div>
+    
+    <div class="frame-container">
+        <div class="frame"></div>
+        <div
+            v-for="(ball, index) in balls"
+            :key="index"
+            class="ball"
+            @click="goToPage(ball.link)"
+            :style="{
+            left: ball.x - ball.r + 'px',
+            top: ball.y - ball.r + 'px',
+            backgroundColor: ball.color
+            }"
+        >
+            <div class="image-container">
+                <img class="image" :src="withBase(ball.icon)" :alt="frontmatter.hero.image.alt" />
+            </div>
+
+            <div class="ball-tag">
+                {{ ball.name }}
+            </div>
+            
+        </div>
+    </div>
+  </template>
   
   <style scoped>
-    .toggle-button {
-        position: fixed;
-        top: 20px; /* 距离顶部 20px */
-        right: 20px; /* 距离右侧 20px */
-        width: 30px; /* 按钮的宽度 */
-        height: 30px; /* 按钮的高度，和宽度相等形成圆形 */
-        background-color: #588efa; /* 按钮的背景颜色 */
-        color: white; /* 按钮文本颜色 */
-        border: none; /* 去掉默认边框 */
-        border-radius: 50%; /* 使按钮变成圆形 */
-        display: flex;
-        justify-content: center; /* 水平居中 */
-        align-items: center; /* 垂直居中 */
-        cursor: pointer; /* 鼠标悬停时显示为点击手型 */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加轻微阴影效果 */
-        z-index: 1000; /* 确保按钮在页面的最前方 */
-    }
-
-    .toggle-button:hover {
-        background-color: #377aff; /* 鼠标悬停时按钮颜色变化 */
+    .toggle {
+        position: absolute; /* 使按钮绝对定位 */
+        right: calc(5vw / 2);; /* 距离右侧 20px */
     }
 
     .title-container {
@@ -212,8 +192,8 @@
         justify-content: center; /* 水平居中 */
         align-items: center; /* 垂直居中 */
         height: 70px;
-        /* margin-top: 20px; */
         padding-top: 20px;
+        position: relative;
     }
 
     .title {
@@ -225,7 +205,9 @@
         -webkit-background-clip: text; /* 将背景裁剪到文字范围 */
         -webkit-text-fill-color: transparent; /* 使文字的填充颜色透明，显示背景渐变 */
         position: relative; /* 为伪元素定位准备 */
-        padding: 10px 0; /* 增加上下的间距以避免与横线重叠 */
+        padding: 10px 10px; /* 增加上下的间距以避免与横线重叠 */
+        box-shadow: var(--cus-shadow-frame);
+        border-radius: 5px;
     }
 
     .title::before,
@@ -235,7 +217,7 @@
         left: 0;
         width: 100%;
         height: 2px; /* 横线高度 */
-        background-color: rgb(255, 255, 255); /* 横线颜色 */
+        /* background-color: var(--vp-c-neutral); */
     }
 
     .title::before {
@@ -260,8 +242,9 @@
     width: 95%;
     height: 95%;
     transform: translate(-50%, -50%);
-    border: 2px solid rgb(255, 255, 255);
+    /* border: 2px solid rgb(255, 255, 255); */
     border-radius: 10px;
+    box-shadow: var(--cus-shadow-frame);
   }
   .ball {
     width: 180px;
@@ -273,6 +256,8 @@
     flex-direction: column; /* 子元素按列排列 */
     justify-content: center;
     align-items: center; 
+    background: var(--cus-gradient-ball);
+    box-shadow: var(--cus-shadow-ball);
   }
     
   .image-container {
