@@ -27,10 +27,10 @@ const updateValue = (value) => {
 }
 
 .l {
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 0.75em;
-  box-shadow: 0.125em 0.125em 0 0.125em rgba(0,0,0,0.3) inset;
-  /* color: #fdea7b; */
+  box-shadow: inset 5px 5px 10px #b3b3b3,
+  inset -5px -5px 10px #ffffff;;
   color: #d7d7d7;
   display: inline-flex;
   align-items: center;
@@ -42,6 +42,7 @@ const updateValue = (value) => {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  cursor: pointer;
 }
 
 .l:before, .l:after {
@@ -76,7 +77,8 @@ const updateValue = (value) => {
 /* Checked */
 .l:checked {
   background-color: rgba(0,0,0,0.45);
-  box-shadow: 0.125em 0.125em 0 0.125em rgba(0,0,0,0.1) inset;
+  box-shadow: inset 5px 5px 10px #000000,
+  inset -5px -5px 10px #3a3a3a;;;
 }
 
 .l:checked:before {
