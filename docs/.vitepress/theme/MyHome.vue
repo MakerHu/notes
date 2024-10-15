@@ -278,7 +278,7 @@ onMounted(() => {
   margin-bottom: 5px;
   border-radius: 5px;
   padding: 5px;
-  background-color: #ff7c3f;
+  /* background-color: #ff7c3f; */
 }
 
 .image {

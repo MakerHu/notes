@@ -58,46 +58,81 @@ export default defineConfig({
     // 导航栏
     nav: [
       { text: '首页', link: '/' },
-      { text: '分类一', link: '/mycategory1/' },
-      { text: '分类二', link: '/mycategory2/' },
+      { text: '设计模式', link: '/design-pattern/' },
+      { text: '问题集', link: '/question-set/' },
+      { text: '代码积木', link: '/atomic-tool/' },
       {
-        text: '下拉菜单',
+        text: '语言',
         items: [
-          { text: '分类一', link: '/mycategory1/' },
-          { text: '分类二', link: '/mycategory2/' }
+          { text: 'Java', link: '/language/java/' },
+          { text: 'Python', link: '/language/python/' }
+        ]
+      },
+      {
+        text: '框架学习',
+        items: [
+          { text: '框架名', link: '/placeholder' }
         ]
       }
     ],
 
     // 侧边栏
     sidebar: {
-      '/mycategory1/': [
-        { text: '分类一', link: '/mycategory1/' },
+      '/design-pattern/': [
+        { text: '设计模式', link: '/design-pattern/' },
         {
-          text: '示例',
+          text: '创建型模式',
           collapsed: false,
           items: [
-            {text: 'API 示例', link: '/mycategory1/example/api-examples'},
-            {text: 'markdown 示例', link: '/mycategory1/example/markdown-examples'}
+            {text: '简单工厂模式', link: '/design-pattern/simple-factory'}
           ]
         }
       ],
-      '/mycategory2/': [
-        { text: '分类二', link: '/mycategory2/' },
+      '/question-set/': [
+        { text: '问题集', link: '/question-set/' },
         {
-          text: '子分类1',
+          text: 'Linux相关',
           collapsed: false,
           items: [
-            {text: '子分类1.1', link: '/mycategory2/sub1/sub-atrical-one'},
-            {text: '子分类1.2', link: '/mycategory2/sub1/sub-atrical-two'}
+            {text: '防火墙', link: '/question-set/test'}
+          ]
+        }
+      ],
+      '/atomic-tool/': [
+        { text: '代码积木', link: '/atomic-tool/' },
+        {
+          text: 'Java',
+          collapsed: false,
+          items: [
+            {text: '子分类1.1', link: '/atomic-tool/java/sub-atrical-one'},
+            {text: '子分类1.2', link: '/atomic-tool/java/sub-atrical-two'}
           ]
         },
         {
-          text: '子分类2',
+          text: 'Python',
           collapsed: false,
           items: [
-            {text: '子分类2.1', link: '/mycategory2/sub2/sub-atrical-one'},
-            {text: '子分类2.2', link: '/mycategory2/sub2/sub-atrical-two'}
+            {text: '子分类2.1', link: '/atomic-tool/python/sub-atrical-one'},
+            {text: '子分类2.2', link: '/atomic-tool/python/sub-atrical-two'}
+          ]
+        }
+      ],
+      '/language/java/': [
+        { text: 'Java', link: '/language/java/' },
+        {
+          text: 'IO 流',
+          collapsed: false,
+          items: [
+            {text: 'Java 1.1', link: '/language/java/test'},
+            {text: 'Java 1.2', link: '/language/java/test'}
+          ]
+        },
+        {
+          text: '反射机制',
+          collapsed: false,
+          items: [
+            {text: '子分类2.1', link: '/language/java/test'},
+            {text: '子分类2.2', link: '/language/java/test'}
           ]
         }
       ]

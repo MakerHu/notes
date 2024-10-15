@@ -17,14 +17,26 @@ hero:
       link: /mycategory1/
 
 features:
-  - icon: /icon1.jpg
-    title: 分类一
-    link: /mycategory1/
-    details: 分类一的介绍
-  - icon: /icon2.png
-    title: 分类二
-    link: /mycategory2/
-    details: 分类二的介绍
+  - icon: /design-pattern.svg
+    title: 设计模式
+    link: /design-pattern/
+    details: 设计模式的介绍
+  - icon: /question-set.svg
+    title: 问题集
+    link: /question-set/
+    details: 问题集的介绍
+  - icon: /atomic-tool.svg
+    title: 代码积木
+    link: /atomic-tool/
+    details: 代码积木的介绍
+  - icon: /language.svg
+    title: 语言
+    link: /language/
+    details: 语言的介绍
+  - icon: /framework.svg
+    title: 框架学习
+    link: /placeholder/
+    details: 语言的介绍
 ---
 
 <MyHome />
