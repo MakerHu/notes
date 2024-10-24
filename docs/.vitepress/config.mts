@@ -58,6 +58,7 @@ export default defineConfig({
     // 导航栏
     nav: [
       { text: '首页', link: '/' },
+      { text: '知识碎片', link: '/knowledge-fragments/' },
       { text: '设计模式', link: '/design-pattern/' },
       { text: '问题集', link: '/question-set/' },
       { text: '代码积木', link: '/atomic-tool/' },
@@ -78,6 +79,16 @@ export default defineConfig({
 
     // 侧边栏
     sidebar: {
+      '/knowledge-fragments/': [
+        {
+          text: '知识碎片',
+          link: '/knowledge-fragments/',
+          collapsed: false,
+          items: [
+            { text: 'Cookie Session 与 Token', link: '/knowledge-fragments/cookie-session-token' }
+          ]
+        }
+      ],
       '/design-pattern/': [
         { text: '设计模式', link: '/design-pattern/' },
         {

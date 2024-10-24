@@ -17,6 +17,10 @@ hero:
       link: /mycategory1/
 
 features:
+  - icon: /knowledge.svg
+    title: 知识碎片
+    link: /knowledge-fragments/
+    details: 知识碎片的介绍
   - icon: /design-pattern.svg
     title: 设计模式
     link: /design-pattern/
